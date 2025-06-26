@@ -46,12 +46,12 @@ jobs:
     needs: check
     outputs:
       linux-x64-sha: ${{ steps.sha.outputs.linux-x64-sha256 }}
-      linux-arm64-sha: ${{ steps.sha.outputs.linux-arm64-sha256 }}
-      linux-arm-sha: ${{ steps.sha.outputs.linux-arm-sha256 }}
-      win-x64-sha: ${{ steps.sha.outputs.win-x64-sha256 }}
-      win-arm64-sha: ${{ steps.sha.outputs.win-arm64-sha256 }}
-      osx-x64-sha: ${{ steps.sha.outputs.osx-x64-sha256 }}
-      osx-arm64-sha: ${{ steps.sha.outputs.osx-arm64-sha256 }}
+      # linux-arm64-sha: ${{ steps.sha.outputs.linux-arm64-sha256 }}
+      # linux-arm-sha: ${{ steps.sha.outputs.linux-arm-sha256 }}
+      # win-x64-sha: ${{ steps.sha.outputs.win-x64-sha256 }}
+      # win-arm64-sha: ${{ steps.sha.outputs.win-arm64-sha256 }}
+      # osx-x64-sha: ${{ steps.sha.outputs.osx-x64-sha256 }}
+      # osx-arm64-sha: ${{ steps.sha.outputs.osx-arm64-sha256 }}
     strategy:
       matrix:
         runtime: [ linux-x64, linux-arm64, linux-arm, win-x64, osx-x64, osx-arm64, win-arm64 ]
@@ -60,29 +60,29 @@ jobs:
           os: ubuntu-latest
           devScript: ./dev.sh
 
-        - runtime: linux-arm64
-          os: ubuntu-latest
-          devScript: ./dev.sh
+        # - runtime: linux-arm64
+        #   os: ubuntu-latest
+        #   devScript: ./dev.sh
 
-        - runtime: linux-arm
-          os: ubuntu-latest
-          devScript: ./dev.sh
+        # - runtime: linux-arm
+        #   os: ubuntu-latest
+        #   devScript: ./dev.sh
 
-        - runtime: osx-x64
-          os: macOS-latest
-          devScript: ./dev.sh
+        # - runtime: osx-x64
+        #   os: macOS-latest
+        #   devScript: ./dev.sh
 
-        - runtime: osx-arm64
-          os: macOS-latest
-          devScript: ./dev.sh
+        # - runtime: osx-arm64
+        #   os: macOS-latest
+        #   devScript: ./dev.sh
 
-        - runtime: win-x64
-          os: windows-2019
-          devScript: ./dev
+        # - runtime: win-x64
+        #   os: windows-2019
+        #   devScript: ./dev
 
-        - runtime: win-arm64
-          os: windows-latest
-          devScript: ./dev
+        # - runtime: win-arm64
+        #   os: windows-latest
+        #   devScript: ./dev
 
     runs-on: ${{ matrix.os }}
     steps:
