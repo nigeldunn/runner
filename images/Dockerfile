@@ -57,7 +57,7 @@ RUN apt update -y \
 
 
 RUN adduser --disabled-password --gecos "" --uid 1001 runner \
-    && groupadd docker --gid 123 \
+    # && groupadd docker --gid 123 \
     && usermod -aG sudo runner \
     && usermod -aG docker runner \
     && echo "%sudo   ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers \
