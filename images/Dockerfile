@@ -50,6 +50,12 @@ RUN add-apt-repository ppa:git-core/ppa \
     && apt install -y git \
     && rm -rf /var/lib/apt/lists/*
 
+# Configure git-core/ppa based on guidance here:  https://git-scm.com/download/linux
+RUN apt update -y \
+    && apt install -y buildah amazon-ecr-credential-helper podman \
+    && rm -rf /var/lib/apt/lists/*
+
+
 RUN adduser --disabled-password --gecos "" --uid 1001 runner \
     && groupadd docker --gid 123 \
     && usermod -aG sudo runner \
